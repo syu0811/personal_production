@@ -1,2 +1,5 @@
-%h1 ユーザーのマイページ
-%p Find me in app/views/tops/show.html.haml
+%h1 ユーザーのトップページ
+= link_to user_path(current_user.id), class: "" do
+  マイページへ
+= link_to destroy_user_session_path, method: :delete, class: "" do
+  log_out

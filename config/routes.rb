@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
-  resources :top, only: [:index, :show]
+  resources :tops, only: [:index, :show]
   root 'tops#index'
 end

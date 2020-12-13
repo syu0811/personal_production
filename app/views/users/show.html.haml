@@ -1,3 +1,5 @@
 %h1 ユーザーのマイページ
+= link_to top_path(current_user.id), class: "" do
+  トップへ
 = link_to destroy_user_session_path, method: :delete, class: "" do
   log_out
