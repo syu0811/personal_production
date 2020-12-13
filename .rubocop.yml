@@ -70,7 +70,7 @@ Lint/StructNewOverride:
   Enabled: true
 
 Layout/LineLength:
-  Max: 150
+  Max: 200
 
 Metrics/AbcSize:
   Exclude:
@@ -78,6 +78,7 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   CountComments: false
+  Max: 30
   Exclude:
     - 'Guardfile'
     - 'config/routes.rb'
