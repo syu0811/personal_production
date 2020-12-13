@@ -16,7 +16,7 @@ RSpec.describe TopsController, type: :controller do
     end
 
     it "returns http success" do
-      get :show, params: {id: login_user.id}
+      get :show, params: { id: login_user.id }
       expect(response).to have_http_status(:success)
     end
   end
