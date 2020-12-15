@@ -1,23 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe TopsController, type: :controller do
-  describe "GET #index" do
-    it "returns http success" do
+  describe "/top" do
+    it "ステータス OK が返ってくる" do
       get :index
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:ok)
     end
   end
 
-  describe "GET #show" do
+  describe "/top/:id" do
     let(:login_user) { create(:user) }
 
     before do
       sign_in login_user
     end
 
-    it "returns http success" do
+    it "ステータス OK が返ってくる" do
       get :show, params: { id: login_user.id }
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

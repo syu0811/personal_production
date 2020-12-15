@@ -1,5 +1,10 @@
-%h1 ユーザーのマイページ
+%h1 
+  = "#{@user.name}のマイページ"
 = link_to top_path(current_user.id), class: "" do
   トップへ
+%br
+= link_to edit_user_path(current_user.id), class: "" do
+  編集
+%br
 = link_to destroy_user_session_path, method: :delete, class: "" do
   log_out
