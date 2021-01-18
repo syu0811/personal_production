@@ -1,0 +1,10 @@
+%h1
+  ユーザー一覧
+
+- @users.each do |user|
+  = link_to admin_user_path(user.id), class: "" do
+    = user.name
+  %br
+
+%br
+= link_to "マイページ", user_path(@log_in_user), class: ""

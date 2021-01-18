@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     get "login", to: "users/sessions#new"
     get "logout", to: "users/sessions#destroy"
   end
-
+  resources :admin, only: [:index]
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
+  end
   resources :users, only: [:show, :edit, :update]
   resources :tops, only: [:index, :show]
   root 'tops#index'

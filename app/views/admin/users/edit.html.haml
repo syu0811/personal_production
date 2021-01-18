@@ -1,0 +1,17 @@
+%h1
+  = "#{@user.name}の編集"
+
+= form_with(model: @user, url: admin_user_path(@user), local: true) do |f|
+  = render "users/shared/error_messages", resource: @user
+  = f.label :name
+  %br
+  = f.text_field :name
+  %br
+  = f.label :email
+  %br
+  = f.email_field :email
+  %br
+  = f.label :admin
+  = f.check_box :admin
+  %br
+  = f.submit
