@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Admin::UsersController, type: :controller do
-  let(:login_user) { create(:user, admin: true) }
-  let(:user) { create(:user) }
+  let(:job) { create(:job) }
+  let(:login_user) { create(:user, admin: true, job: job) }
+  let(:user) { create(:user, job: job) }
 
   before do
     sign_in login_user

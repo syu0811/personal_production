@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Validation' do
+    let(:job) { create(:job) }
+
     context '正常系' do
       it "成功する" do
-        user = build(:user)
+        user = build(:user, job: job)
         expect(user).to be_valid
       end
     end
@@ -32,6 +34,12 @@ RSpec.describe User, type: :model do
         user = build(:user, password: "password", password_confirmation: "passworld")
         user.valid?
         expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
+      end
+
+      it "job_idが無ければ失敗する" do
+        user = build(:user, job: nil)
+        user.valid?
+        expect(user.errors[:job_id]).to include('を入力してください')
       end
     end
   end
