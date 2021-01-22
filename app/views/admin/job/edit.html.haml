@@ -1,0 +1,16 @@
+.single-container
+  %h1
+    仕事編集
+
+  = form_with(model: @job, url: admin_job_path, local: true) do |f|
+    - if f.object.errors.any?
+      .alert-warning
+        %ul
+          - f.object.errors.full_messages.each do |message|
+            %li
+              = message
+    .form-group
+      = f.label :name
+      = f.text_field :name, required: true, class: 'form-control'
+    .form-group
+      = f.submit nil, class: 'btn btn-success'

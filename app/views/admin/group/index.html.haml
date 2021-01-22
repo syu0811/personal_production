@@ -1,0 +1,22 @@
+.single-container
+  %h1
+    クラス一覧
+
+  = link_to '登録', new_admin_group_path, class: 'btn btn-success mb-3'
+
+  %table.table.text-nowrap
+    %thead.thead-light
+      %tr
+        %th.col-7
+          クラス
+        %th.col-5
+    %tbody
+      - @groups.each do |group|
+        %tr
+          %td
+            = "#{group.school_year}年#{group.number}組　担任：#{group.user.name}"
+          %td
+            = link_to '編集', edit_admin_group_path(group.id), class: 'btn btn-outline-dark'
+            = link_to '削除', admin_group_path(group.id), method: :delete, data: {confirm: '削除しますか？'}, class: 'btn btn-danger'
+      
+      = link_to "管理者ページ", admin_index_path, class: ""

@@ -1,0 +1,22 @@
+.single-container
+  %h1
+    = t '.title'
+
+  = form_with(model: @group, url: admin_group_path, local: true) do |f|
+    - if f.object.errors.any?
+      .alert-warning
+        %ul
+          - f.object.errors.full_messages.each do |message|
+            %li
+              = message
+    .form-group
+      = f.label :school_year
+      = f.select :school_year, {'１年': 1, '２年': 2, '３年': 3}, {},{ class: "form-control" }
+    .form-group
+      = f.label :number
+      = f.select :number, {'１組': 1, '２組': 2, '３組': 3, '４組': 4}, {},{ class: "form-control" }
+    .form-group
+      = f.label :user_id
+      = f.collection_select :user_id, User.all, :id, :name, {},{ class: "form-control" }
+    .form-group
+      = f.submit nil, class: 'btn btn-success'

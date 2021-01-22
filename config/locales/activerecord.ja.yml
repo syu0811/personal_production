@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      group:
+        school_year: 学年
+        number: 組
+        user_id: 担任教師
+      job:
+        name: 仕事名
+    models:
+      job: 仕事
+      group: クラス
+      user: ユーザー

@@ -1,4 +1,7 @@
-%h1
-  管理者ページ
+.single-container
+  %h1
+    管理者ページ
 
-= link_to "ユーザー一覧", admin_users_path, class: ""
+  = link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-dark"
+  = link_to "仕事一覧", admin_job_index_path, class: "btn btn-outline-dark"
+  = link_to "クラス一覧", admin_group_index_path, class: "btn btn-outline-dark"
