@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :job, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :group, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :student, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
   resources :tops, only: [:index, :show]

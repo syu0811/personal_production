@@ -1,0 +1,30 @@
+.single-container
+  %h1
+    生徒登録
+
+  = form_with(model: @student, url: admin_student_index_path, local: true) do |f|
+    - if f.object.errors.any?
+      .alert-warning
+        %ul
+          - f.object.errors.full_messages.each do |message|
+            %li
+              = message
+    .form-row
+      .form-group.col-sm-6
+        = f.label :lastname
+        = f.text_field :lastname, class: 'form-control'
+      .form-group.col-sm-6
+        = f.label :firstname
+        = f.text_field :firstname, class: 'form-control'
+    .form-row
+      = f.label :birthdate, class: 'pt-1 ml-2'
+      %br/
+      = f.date_select :birthdate, {use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, {class: "form-group form-control col-sm-3 ml-3"}
+    .form-group
+      = f.label :number
+      = f.text_field :number, required: true, class: 'form-control'
+    .form-group
+      = f.label :group_id
+      = f.collection_select :group_id, Group.all, :id, :school_year, {},{ class: "form-control" }
+    .form-group
+      = f.submit nil, class: 'btn btn-success'

@@ -1,6 +1,6 @@
 .single-container
   %h1
-    = t '.title'
+    クラス編集
 
   = form_with(model: @group, url: admin_group_path, local: true) do |f|
     - if f.object.errors.any?

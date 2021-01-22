@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_080457) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.date "birthdate", null: false
-    t.integer "number", null: false
+    t.string "number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "group_id"
