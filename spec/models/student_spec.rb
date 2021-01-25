@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Student, type: :model do
   describe 'Validation' do
-    let(:group) { create(:group) }
-
     context '正常系' do
       it "成功する" do
-        student = build(:student, group: group)
+        student = build(:student)
         expect(student).to be_valid
       end
     end
@@ -58,26 +56,6 @@ RSpec.describe Student, type: :model do
         student = build(:student, birthdate: 1.day.since)
         student.valid?
         expect(student.errors[:birthdate]).to include("は正しい範囲で設定してください")
-      end
-
-      it "numberが空の場合" do
-        student = build(:student, number: nil)
-        student.valid?
-        expect(student.errors[:number]).to include("を入力してください")
-      end
-
-      it "group_idが空の場合" do
-        student = build(:student, group: nil)
-        student.valid?
-        expect(student.errors[:group_id]).to include("を入力してください")
-      end
-
-      it 'group_idとnumberが重複している場合' do
-        number = 2
-        create(:student, group: group, number: number)
-        student = build(:student, group: group, number: number)
-        student.valid?
-        expect(student.errors[:group_id]).to include("はすでに存在します")
       end
     end
   end

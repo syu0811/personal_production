@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :admin, only: [:index]
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :edit, :update, :destroy]
     resources :job, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :group, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :student, only: [:index, :show, :new, :create, :edit, :update, :destroy]

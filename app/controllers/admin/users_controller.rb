@@ -21,9 +21,9 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_user_path(@user), notice: t('flash.update')
+      redirect_to admin_users_path, notice: t('flash.update')
     else
-      redirect_to admin_user_path(@user), notice: "更新に失敗しました"
+      redirect_to admin_users_path, notice: "更新に失敗しました"
     end
   end
 
