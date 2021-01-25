@@ -21,10 +21,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_014302) do
     t.integer "number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["group_id", "number"], name: "index_group_number_students_on_group_id_and_number", unique: true
-    t.index ["group_id", "student_id"], name: "index_group_number_students_on_group_id_and_student_id", unique: true
+    t.index ["group_id", "student_id", "number"], name: "group_index", unique: true
     t.index ["group_id"], name: "index_group_number_students_on_group_id"
-    t.index ["student_id", "number"], name: "index_group_number_students_on_student_id_and_number", unique: true
     t.index ["student_id"], name: "index_group_number_students_on_student_id"
   end
 

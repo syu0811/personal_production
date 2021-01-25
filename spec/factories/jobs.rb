@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :job do
-    name { 'テスト' }
+    sequence(:name) { |n| "テスト_#{n}" }
   end
 end
