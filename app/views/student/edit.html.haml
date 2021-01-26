@@ -1,0 +1,19 @@
+.single-container
+  %h1
+    クラス割り当て
+
+  - @group.each do |groups|
+    = "現在クラス: #{groups.group.school_year}年 #{groups.group.number}組"
+
+  = form_with(model: @student, url: student_path(@student), local: true) do |f|
+    - if f.object.errors.any?
+      .alert-warning
+        %ul
+          - f.object.errors.full_messages.each do |message|
+            %li
+              = message
+    .form-group
+      = f.label :group_id
+      = f.collection_select :group_id, Group.all, :id, :view_group_name, {}, {}
+    .form-group
+    = f.submit nil, class: 'btn btn-success'

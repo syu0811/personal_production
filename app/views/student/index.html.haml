@@ -1,0 +1,18 @@
+.single-container
+  %h1
+    生徒一覧
+  = link_to "マイページ", user_path(current_user.id), class: ""
+
+  %table.table.text-nowrap
+    %thead.thead-light
+      %tr
+        %th.col-7
+          名前
+        %th.col-5
+    %tbody
+      - @students.each do |student|
+        %tr
+          %td
+            = "#{student.firstname} #{student.lastname}"
+          %td
+            = link_to '割り当て', edit_student_path(student.id), class: 'btn btn-outline-dark'

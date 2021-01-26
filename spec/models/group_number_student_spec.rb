@@ -32,11 +32,10 @@ RSpec.describe GroupNumberStudent, type: :model do
       end
 
       it 'group_idとstudent_idとnumberが重複している場合' do
-        number = 1
-        create(:group_number_student, group: group, student: student, number: number)
-        group_number_student = build(:group_number_student, group: group, student: student, number: number)
+        create(:group_number_student, group: group, student: student)
+        group_number_student = build(:group_number_student, group: group, student: student)
         group_number_student.valid?
-        expect(group_number_student.errors[:number]).to include("はすでに存在します")
+        expect(group_number_student.errors[:student_id]).to include("はすでに存在します")
       end
     end
   end

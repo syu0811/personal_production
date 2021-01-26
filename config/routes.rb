@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :student, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
+  resources :student, only: [:index, :edit, :update]
   resources :tops, only: [:index, :show]
   root 'tops#index'
 end

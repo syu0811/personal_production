@@ -6,6 +6,6 @@ class CreateGroupNumberStudents < ActiveRecord::Migration[6.1]
       t.integer :number, null: false
       t.timestamps
     end
-    add_index :group_number_students, [:group_id, :student_id, :number], unique: true, name: 'group_index'
+    add_index :group_number_students, [:group_id, :student_id], unique: true
   end
 end
