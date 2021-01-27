@@ -31,9 +31,9 @@ RSpec.describe GroupNumberStudent, type: :model do
         expect(group_number_student.errors[:number]).to include("を入力してください")
       end
 
-      it 'group_idとstudent_idとnumberが重複している場合' do
-        create(:group_number_student, group: group, student: student)
-        group_number_student = build(:group_number_student, group: group, student: student)
+      it 'student_idとnumberが重複している場合' do
+        create(:group_number_student, student: student)
+        group_number_student = build(:group_number_student, student: student)
         group_number_student.valid?
         expect(group_number_student.errors[:student_id]).to include("はすでに存在します")
       end

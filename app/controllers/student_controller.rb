@@ -46,6 +46,7 @@ class StudentController < ApplicationController
     end
 
     def group_params
-      1 # params.require(:student).permit(:group_id)
+      @id = params.require(:student).permit(:group_id)
+      @id = @id["group_id"]
     end
 end
